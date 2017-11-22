@@ -1,16 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title></title>
-  <meta name="keywords" content="My singal blog" />
-  <meta name="description" />
-  <link href="css/base.css" rel="stylesheet">
-  <link href="css/index.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="keywords" content="My singal blog" />
+    <meta name="description" />
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/message.css" rel="stylesheet" />
   <!--[if lt IE 9]>
-  <script src="js/modernizr.js"></script>
+    <script src="js/modernizr.js"></script>
   <![endif]-->
-  <script src="js/scrollReveal.js"></script>
+    <script src="js/scrollReveal.js"></script>
 </head>
 <body>
 <header>
@@ -33,7 +34,25 @@
 <article>
   <div class="container">
     <div class="blog" data-scroll-reveal="enter top" >
-
+      <form method="post" action="email.php">
+          <p>
+              <label class="connect" for="name">Name:</label><br/>
+              <input type="text" id="name" name="name" /><br/>
+          </p>
+          <p>
+              <label class="connect" for="email">Email:</label><br/>
+              <input type="text" id="email" name="email" /><br/>
+          </p>
+          <p>
+              <label class="connect" for="subject">Suject:</label><br/>
+              <input type="text" id="subject" name="subject"><br/>
+          </p>
+          <p>
+              <label class="connect" for="message">Message:</label><br/>
+              <textarea id="message" name="message" placeholder="please write to me!" rows="5" cols="20"></textarea><br/>
+          </p>
+          <input type="submit" class="submit" value="send" />
+      </form>
     </div>
   </div>
 
