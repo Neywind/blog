@@ -1,33 +1,25 @@
-<?php
-$to="mzwang_suda@163.com";
-$name=$_REQUEST['name'];
-$email=$_REQUEST['email'];
-$message=$_REQUEST['message']."by".$name;
-$subject=$_REQUEST['subject'];
-$headers="From $email";
-class customException extends Exception{ //自定义的异常抛出函数
-    public function errorMessage(){
-        $errorMsg="Error in line:".$this->getLine()." in ".$this->getFile()." :<b> ".$this.$this->getMessage()
-            ." </b>is not a valid Email address.";
-        return $errorMsg;
-    }
-}
-try{
-    try {
-        if (strpos($email, "example") !== false) {
-            throw new Exception($email);
-        }
-    }catch(Exception $e){
-        throw new customException($email);
-    }
-}catch(customException $e){
-    echo $e->errorMessage();
-}
-
-function myException($exception)
-{
-    echo "<b>Exception:</b> " , $exception->getMessage();
-}
-set_exception_handler('myException');       //set_exception_handler可以设置处理所有未捕获异常的用户自定义函数
-throw new Exception('Uncaught Exception occurred');
-mail($to,$subject,$message,$email);
+<meta charset="utf-8"> 
+<?php 
+require_once "email.class.php"; 
+$smtpserver = "smtp.163.com";//SMTP服务器 
+$smtpserverport =25;//SMTP服务器端口 
+$smtpusermail = "onestopweb@163.com";//SMTP服务器的用户邮箱 
+$smtpemailto = $_POST['toemail'];//发送给谁 
+$smtpuser = "onestopweb";//SMTP服务器的用户帐号 
+$smtppass = "123456";//SMTP服务器的用户密码 
+$mailtitle = $_POST['title'];//邮件主题 
+$mailcontent = "<h1>".$_POST['content']."</h1>";//邮件内容 
+$mailtype = "HTML";//邮件格式（HTML/TXT）,TXT为文本邮件 
+$smtp = new smtp($smtpserver,$smtpserverport,true,$smtpuser,$smtppass);//这里面的一个true是表示使用身份验证,否则不使用身份验证. 
+$smtp->debug = false;//是否显示发送的调试信息 
+$state = $smtp->sendmail($smtpemailto, $smtpusermail, $mailtitle, $mailcontent, $mailtype); 
+echo "<div style='width:300px; margin:36px auto;'>"; 
+if($state==""){ 
+echo "对不起，邮件发送失败！请检查邮箱填写是否有误。"; 
+echo "<a href='index.html'>点此返回</a>"; 
+exit(); 
+} 
+echo "恭喜！邮件发送成功！！"; 
+echo "<a href='index.html'>点此返回</a>"; 
+echo "</div>"; 
+?>
