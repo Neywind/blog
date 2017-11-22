@@ -1,0 +1,19 @@
+input,textarea{
+    opacity: 0.5;
+}
+textarea{
+    width:400px;
+    color:black;
+    font-weight:bold;
+    font-size:15px;
+}
+form p{
+    margin:1em 0;
+}
+.submit{
+    width:50px;
+    heigth:30px;
+}
+.submit:hover{
+    background-color:#4bcfef;
+}
