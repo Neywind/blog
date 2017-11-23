@@ -3,9 +3,9 @@
 require_once "email.class.php"; 
 $smtpserver = "smtp.163.com";//SMTP服务器 
 $smtpserverport =25;//SMTP服务器端口 
-$smtpusermail = "onestopweb@163.com";//SMTP服务器的用户邮箱 
-$smtpemailto = $_POST['toemail'];//发送给谁 
-$smtpuser = "";//SMTP服务器的用户帐号 
+$smtpusermail = "mzwang_suda@163.com";//SMTP服务器的用户邮箱 
+$smtpemailto = $_POST['email'];//发送给谁 
+$smtpuser = "mzwang_suda@163.com";//SMTP服务器的用户帐号 
 $smtppass = "jh0925";//SMTP服务器的用户密码 
 $mailtitle = $_POST['subject'];//邮件主题 
 $mailcontent = "<h1>".$_POST['message']."</h1>";//邮件内容 
